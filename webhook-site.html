@@ -1,0 +1,729 @@
+The competitor analysis has been thoroughly reviewed. Based on the insights, market gaps, and recommendations, I have designed a comprehensive static website structure focusing on a hybrid of ease-of-use and powerful, flexible automation, transparent pricing, and extensive integration.
+
+The website, named "AutomationFlow," emphasizes a clean, modern UI/UX with a mobile-first responsive design. It incorporates modern design trends like gradients, subtle shadows, and smooth animations, along with essential accessibility features.
+
+Here is the complete HTML file with embedded CSS:
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutomationFlow - Simply Powerful Workflow Automation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --primary-dark: #2C3E50;
+            --secondary-light: #ECF0F1;
+            --text-dark: #333;
+            --text-light: #fff;
+            --accent-green: #2ECC71;
+            --gradient-start: #4A90E2; /* Blue */
+            --gradient-end: #8E44AD;   /* Purple */
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--secondary-light);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            margin-bottom: 0.5em;
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--gradient-end);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* Header & Navigation */
+        .site-header {
+            background-color: var(--text-light);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+            margin-left: 5px;
+        }
+        
+        .logo svg {
+            margin-right: 8px;
+            fill: var(--primary-blue);
+            transition: fill 0.3s ease;
+        }
+        .logo:hover svg {
+            fill: var(--gradient-end);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 2rem;
+        }
+
+        .main-nav ul li a {
+            color: var(--primary-dark);
+            font-weight: 600;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .main-nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: var(--text-light);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 250px;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 50%;
+            transform: rotate(-30deg);
+            z-index: 1;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5em;
+            color: var(--text-light);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: var(--text-light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: -1;
+        }
+
+        .btn:hover::after {
+            left: 0;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);\
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 4rem 0;
+            text-align: center;
+            background-color: var(--text-light); /* Default for sections */
+        }
+
+        .section.alt-background {
+            background-color: var(--secondary-light);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5em;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-blue);
+            border-radius: 2px;
+        }
+        
+        .feature-grid, .integration-grid, .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+
+        .feature-item, .integration-item, .use-case-item {
+            background-color: var(--text-light);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .feature-item:hover, .integration-item:hover, .use-case-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-item svg {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            width: 40px; /* Standardize SVG size */
+            height: 40px;
+        }
+        .feature-item h3 {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .feature-item p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Integrations */
+        .integration-grid {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1.5rem;
+        }
+        .integration-item {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .integration-item img {
+            max-width: 80%;
+            max-height: 60px;
+            filter: grayscale(80%);
+            opacity: 0.8;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        .integration-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--text-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #444;
+            font-size: 1.05rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        .testimonial-author span {
+            display: block;
+            font-size: 0.9rem;
+            color: #777;
+            font-weight: 400;
+            margin-top: 0.2rem;
+        }
+
+        /* Call to Action Bottom */
+        .cta-bottom {
+            background: linear-gradient(45deg, var(--gradient-end), var(--gradient-start));
+            color: var(--text-light);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-bottom h2 {
+            color: var(--text-light);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+        .cta-bottom p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-bottom .btn {
+            background-color: var(--text-light);
+            color: var(--primary-dark);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);\
+        }
+        .cta-bottom .btn:hover {
+            color: var(--gradient-end);
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--primary-dark);
+            color: var(--secondary-light);
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        .site-footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.7rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--secondary-light);
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);\
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Accessibility (A11Y) */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .site-header .container {
+                flex-direction: column;
+                padding: 1rem 1.5rem;
+            }
+            .main-nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .main-nav ul li {
+                margin: 0.5rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+            .cta-bottom h2 {
+                font-size: 2.2rem;
+            }
+            .cta-bottom p {
+                font-size: 1rem;
+            }
+
+            .footer-col {
+                min-width: 150px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .main-nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .hero {
+                padding: 4rem 0;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .feature-grid, .integration-grid, .use-case-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            .feature-item, .integration-item, .use-case-item, .testimonial-card {
+                margin-bottom: 1rem; /* Add some space between stacked cards */
+            }
+
+            .site-footer .container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .footer-col {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            .main-nav ul li a {
+                font-size: 0.9rem;
+            }
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+            .feature-item h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header" role="banner">
+        <div class="container">
+            <a href="#" class="logo" aria-label="AutomationFlow homepage">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 10L12 15L17 10H7Z" fill="currentColor"/>
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
+                </svg>
+                Automation<span>Flow</span>
+            </a>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#integrations">Integrations</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" role="region" aria-labelledby="hero-heading">
+            <div class="container hero-content">
+                <h1 id="hero-heading">Automate Your Business. Simply Powerful.</h1>
+                <p>Build complex, multi-step workflows without a single line of code. Connect all your apps and reclaim your time, effortlessly.</p>
+                <a href="#pricing" class="btn">Start Free Today</a>
+            </div>
+        </section>
+
+        <section id="features" class="section alt-background" role="region" aria-labelledby="features-heading">
+            <div class="container">
+                <h2 id="features-heading">Why Choose AutomationFlow?</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M13 14H11V9H13V14ZM13 16H11V18H13V16ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z"/>
+                        </svg>
+                        <h3>Intuitive Drag & Drop</h3>
+                        <p>Design intricate automations with our visual builder. No coding, just connecting blocks.</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"/>
+                        </svg>
+                        <h3>Multi-Step & Advanced Logic</h3>
+                        <p>Handle complex scenarios with conditional paths, loops, and custom data transformations.</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10 16.5V7.5L16 12L10 16.5ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z"/>
+                        </svg>
+                        <h3>Connect Everything</h3>
+                        <p>Integrate with thousands of apps via direct connectors, webhooks, or custom APIs.</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z"/>
+                        </svg>
+                        <h3>Reliable & Scalable</h3>
+                        <p>Built for performance, security, and scalability to support your business as it grows.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="integrations" class="section" role="region" aria-labelledby="integrations-heading">
+            <div class="container">
+                <h2 id="integrations-heading">Connect with Your Favorite Apps</h2>
+                <p>Seamlessly integrate AutomationFlow with thousands of leading business tools.</p>
+                <div class="integration-grid">
+                    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Slack_logo.svg" alt="Slack logo"></div>
+                    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google logo"></div>
+                    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.svg/1024px-Salesforce.svg.png" alt="Salesforce logo"></div>
+                    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Shopify_logo.svg" alt="Shopify logo"></div>
+                    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Mailchimp_Logo.svg/1024px-Mailchimp_Logo.svg.png" alt="Mailchimp logo"></div>
+                    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Trello_logo.svg" alt="Trello logo"></div>
+                    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/HubSpot_Logo.svg" alt="HubSpot logo"></div>
+                    <div class="integration-item"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Zapier_logo.svg" alt="Zapier logo"></div>
+                </div>
+                <p style="margin-top: 2rem;">...and thousands more! <a href="#">Explore all integrations</a></p>
+            </div>
+        </section>
+
+        <section id="use-cases" class="section alt-background" role="region" aria-labelledby="use-cases-heading">
+            <div class="container">
+                <h2 id="use-cases-heading">Automate Your Industry, Your Way</h2>
+                <p>Discover pre-built templates and solutions tailored for your business needs.</p>
+                <div class="use-case-grid">
+                    <div class="use-case-item">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 12C14.76 12 17 9.76 17 7C17 4.24 14.76 2 12 2C9.24 2 7 4.24 7 7C7 9.76 9.24 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
+                        </svg>
+                        <h3>Sales & Marketing Automation</h3>
+                        <p>Lead nurturing, CRM updates, email campaigns, social media scheduling.</p>
+                    </div>
+                    <div class="use-case-item">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M5 13.18V17H9.82L19.03 7.8L14.23 3L5 12.23ZM17.25 4.75L19.25 6.75L15.92 10.08L13.92 8.08L17.25 4.75Z"/>
+                        </svg>
+                        <h3>Operations & HR</h3>
+                        <p>Onboarding new hires, project management, invoice processing, data sync.</p>
+                    </div>
+                    <div class="use-case-item">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM18 14H6V12H18V14ZM18 11H6V9H18V11Z"/>
+                        </svg>
+                        <h3>Customer Support</h3>
+                        <p>Ticket routing, feedback collection, personalized responses, knowledge base updates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" role="region" aria-labelledby="testimonials-heading">
+            <div class="container">
+                <h2 id="testimonials-heading">What Our Users Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>"AutomationFlow transformed our small business. We save hours every week, allowing us to focus on growth!"</p>
+                        <div class="testimonial-author">Jane Doe <span>Founder, Creative Solutions</span></div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The visual builder is incredibly powerful yet simple to use. It's truly a game-changer for our marketing team."</p>
+                        <div class="testimonial-author">John Smith <span>Marketing Director, Global Corp</span></div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"We moved from Zapier for the predictable pricing and haven't looked back. AutomationFlow offers more value."</p>
+                        <div class="testimonial-author">Sarah Lee <span>Operations Manager, Tech Innovations</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="cta-bottom" role="region" aria-labelledby="cta-heading">
+            <div class="container">
+                <h2 id="cta-heading">Ready to Transform Your Workflow?</h2>
+                <p>Experience the power of effortless automation. Start building your future today.</p>
+                <a href="#" class="btn" aria-label="Start your free trial now">Get Started Free</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-col">
+                <h4>AutomationFlow</h4>
+                <p>Simplifying complex workflows for businesses of all sizes.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Contact Support</a></li>
+                    <li><a href="#">Status</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 AutomationFlow. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+```
