@@ -1,0 +1,991 @@
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Velocity Motors: Your premier destination for luxury, exotic, and performance sports cars. Experience unrivaled service and a curated collection.">
+    <title>Velocity Motors - Premier Sports Car Dealership</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Base Styles */
+        :root {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #2a2a2a;
+            --text-color: #f0f0f0;
+            --accent-color: #e0b400; /* Subtle gold/amber */
+            --light-grey: #b0b0b0;
+            --dark-grey-text: #666;
+            --border-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            background-color: var(--primary-bg);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            color: #ffd700; /* Brighter gold on hover */
+            transform: translateY(-2px);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-color);
+            margin-bottom: 0.8em;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
+        section {
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-bg);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ffd700; /* Brighter gold on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-bg);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--text-color);
+            letter-spacing: 0.05em;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: var(--light-grey);
+            font-weight: 400;
+            font-size: 0.95em;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto; /* Push to the right */
+        }
+
+        .contact-info .phone {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        /* Mobile Navigation Toggle (Hamburger) */
+        .nav-toggle {
+            display: none; /* Hidden by default for larger screens */
+            background: none;
+            border: none;
+            font-size: 2em;
+            color: var(--text-color);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: url('https://via.placeholder.com/1920x1080/111111/FFFFFF?text=Ultimate+Sports+Car') no-repeat center center/cover;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            position: relative;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+        }
+
+        #hero .hero-content {
+            z-index: 10;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        #hero h1 {
+            font-size: 3em;
+            margin-bottom: 0.4em;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        #hero p {
+            font-size: 1.3em;
+            margin-bottom: 1.5em;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+        
+        /* Featured Inventory */
+        #featured-inventory {
+            background-color: var(--secondary-bg);
+            padding: 60px 20px;
+        }
+
+        #featured-inventory h2 {
+            margin-bottom: 40px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .car-card {
+            background-color: var(--primary-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .car-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .car-card-content {
+            padding: 20px;
+        }
+
+        .car-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .car-card .price {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .car-card p {
+            font-size: 0.9em;
+            color: var(--light-grey);
+            margin-bottom: 15px;
+        }
+
+        .car-card .btn {
+            width: calc(100% - 40px);
+            text-align: center;
+            margin: 0 auto 20px auto;
+        }
+
+        /* Our Services */
+        #our-services {
+            background-color: var(--primary-bg);
+            padding: 60px 20px;
+            color: var(--light-grey);
+        }
+
+        #our-services h2 {
+            margin-bottom: 40px;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-item .icon {
+            font-size: 3em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .service-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .service-item p {
+            font-size: 0.9em;
+            color: var(--light-grey);
+        }
+        
+        /* Why Choose Us */
+        #why-choose-us {
+            background-color: var(--secondary-bg);
+            padding: 60px 20px;
+        }
+
+        #why-choose-us h2 {
+            margin-bottom: 40px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .advantage-item {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+        }
+
+        .advantage-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3em;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 45px;
+        }
+
+        .advantage-item h3::before {
+            content: '✓'; /* Checkmark icon */
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5em;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+
+        .advantage-item p {
+            font-size: 0.95em;
+            color: var(--light-grey);
+        }
+
+        /* About Us */
+        #about-us {
+            padding: 60px 20px;
+            color: var(--light-grey);
+            background-color: var(--primary-bg);
+        }
+
+        #about-us h2 {
+            margin-bottom: 30px;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        #about-us .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            text-align: left;
+        }
+
+        #about-us .text-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        #about-us p {
+            margin-bottom: 15px;
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        #about-us .team-photo {
+            max-width: 500px;
+            margin: 30px auto 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Testimonials */
+        #testimonials {
+            background-color: var(--secondary-bg);
+            padding: 60px 20px;
+        }
+
+        #testimonials h2 {
+            margin-bottom: 40px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--primary-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: var(--light-grey);
+            font-size: 0.95em;
+        }
+
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--text-color);
+            font-size: 1.1em;
+        }
+
+        /* Contact CTA */
+        #contact-cta {
+            background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+            padding: 80px 20px;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        #contact-cta h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        #contact-cta p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: var(--light-grey);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 40px 20px;
+            color: var(--light-grey);
+            font-size: 0.9em;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: var(--light-grey);
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+
+        .social-links a {
+            font-size: 1.5em;
+            margin: 0 10px;
+            color: var(--light-grey);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--dark-grey-text);
+        }
+
+        /* Responsive Design - Mobile First */
+
+        /* Small screens / Mobile */
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                padding: 15px 15px;
+            }
+
+            .logo {
+                font-size: 1.6em;
+                order: 1;
+            }
+
+            .nav-toggle {
+                display: block; /* Show hamburger menu */
+                order: 2;
+            }
+
+            nav {
+                order: 3;
+                flex-basis: 100%; /* Take full width */
+                display: none; /* Hidden by default */
+                background-color: var(--secondary-bg);
+                padding: 20px 0;
+                margin-top: 10px;
+                border-top: 1px solid var(--border-color);
+            }
+
+            nav.open {
+                display: block; /* Show when open */
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            nav ul li a {
+                padding: 10px 0;
+                display: block;
+            }
+            
+            .contact-info {
+                display: none; /* Hide phone number on very small screens, or make it a click-to-call icon */
+                order: 4;
+            }
+
+            #hero h1 {
+                font-size: 2.5em;
+            }
+
+            #hero p {
+                font-size: 1.1em;
+            }
+
+            section {
+                padding: 30px 15px;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .inventory-grid, .services-grid, .advantages-grid, .testimonial-grid, .footer-grid {
+                grid-template-columns: 1fr; /* Single column */
+            }
+
+            .car-card .btn {
+                width: auto; /* Revert to default width for better mobile fit */
+            }
+
+            .footer-column {
+                text-align: center;
+            }
+
+            .footer-column ul {
+                padding: 0;
+            }
+        }
+
+        /* Medium screens */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            header {
+                padding: 15px 30px;
+            }
+            nav ul {
+                gap: 20px;
+            }
+            #hero h1 {
+                font-size: 3.5em;
+            }
+            .inventory-grid, .services-grid, .advantages-grid, .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Large screens */
+        @media (min-width: 1025px) {
+            header {
+                padding: 20px 50px;
+            }
+            #hero h1 {
+                font-size: 4em;
+            }
+            #hero p {
+                font-size: 1.4em;
+            }
+            h1 { font-size: 3em; }
+            h2 { font-size: 2.2em; }
+            h3 { font-size: 1.6em; }
+            .inventory-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .services-grid, .advantages-grid, .testimonial-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Accessibility (ARIA roles) */
+        header nav ul {
+            role: navigation;
+        }
+
+        .nav-toggle {
+            aria-controls: 'main-navigation';
+            aria-expanded: 'false';
+            aria-label: 'Toggle navigation';
+        }
+
+        /* Add simple animations for elements coming into view if desired, using JS Intersection Observer */
+        /* For this task, keeping it static as requested, but good to note. */
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Velocity <span>Motors</span></div>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-navigation">&#9776;</button>
+        <nav id="main-navigation">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#featured-inventory">Inventory</a></li>
+                <li><a href="#our-services">Services</a></li>
+                <li><a href="#why-choose-us">Why Choose Us</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#contact-cta">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="contact-info">
+            <a href="tel:+1-800-VELOCITY" class="phone">1-800-VELOCITY</a>
+            <a href="#contact-cta" class="btn small">Enquire Now</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Experience Unrivaled Automotive Excellence</h1>
+                <p>Curated Collection of the World's Most Desirable Sports Cars, Supercars & Luxury EVs.</p>
+                <a href="#featured-inventory" class="btn">Discover Our Collection</a>
+            </div>
+        </section>
+
+        <section id="featured-inventory" class="container">
+            <h2>Our Curated Collection</h2>
+            <div class="inventory-grid">
+                <!-- Car Card 1 -->
+                <div class="car-card">
+                    <img src="https://via.placeholder.com/600x400/333333/FFFFFF?text=Ferrari+SF90" alt="Ferrari SF90 Stradale">
+                    <div class="car-card-content">
+                        <h3>Ferrari SF90 Stradale</h3>
+                        <span class="price">POA</span>
+                        <p>Hybrid Power, Unmatched Performance. Experience the future of Ferrari.</p>
+                        <a href="#" class="btn small">View Details</a>
+                    </div>
+                </div>
+                <!-- Car Card 2 -->
+                <div class="car-card">
+                    <img src="https://via.placeholder.com/600x400/333333/FFFFFF?text=Porsche+911+GT3" alt="Porsche 911 GT3 RS">
+                    <div class="car-card-content">
+                        <h3>Porsche 911 GT3 RS</h3>
+                        <span class="price">POA</span>
+                        <p>Track-Ready Precision, Road-Going Thrill. The ultimate driver's car.</p>
+                        <a href="#" class="btn small">View Details</a>
+                    </div>
+                </div>
+                <!-- Car Card 3 -->
+                <div class="car-card">
+                    <img src="https://via.placeholder.com/600x400/333333/FFFFFF?text=Lamborghini+Huracan" alt="Lamborghini Huracán EVO">
+                    <div class="car-card-content">
+                        <h3>Lamborghini Huracán EVO</h3>
+                        <span class="price">POA</span>
+                        <p>Exhilarating Design, Breathtaking Power. An icon of extreme performance.</p>
+                        <a href="#" class="btn small">View Details</a>
+                    </div>
+                </div>
+                <!-- Car Card 4 (EV Highlight) -->
+                <div class="car-card">
+                    <img src="https://via.placeholder.com/600x400/333333/FFFFFF?text=Tesla+Roadster" alt="Tesla Roadster (Next Gen)">
+                    <div class="car-card-content">
+                        <h3>Tesla Roadster (Next Gen)</h3>
+                        <span class="price">POA</span>
+                        <p>Future of Speed. Hypercar Performance, All-Electric. Pre-orders available.</p>
+                        <a href="#" class="btn small">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn">View All Inventory</a>
+        </section>
+
+        <section id="our-services">
+            <div class="container">
+                <h2>Our Bespoke Services</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <span class="icon">&#9881;</span> <!-- Gear icon -->
+                        <h3>Factory Authorized Service</h3>
+                        <p>Expert maintenance and repairs by certified technicians for all exotic brands.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="icon">&#9992;</span> <!-- Plane/Delivery icon -->
+                        <h3>Global Sourcing & Delivery</h3>
+                        <p>We'll find your dream car, no matter how rare, and deliver it securely.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="icon">&#9733;</span> <!-- Star icon -->
+                        <h3>Exclusive Customization</h3>
+                        <p>Personalize your vehicle with bespoke options and unique modifications.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="icon">&#128737;</span> <!-- Lock icon -->
+                        <h3>Secure Vehicle Storage</h3>
+                        <p>Climate-controlled, secure storage for your prized possessions.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="icon">&#127937;</span> <!-- Racing flag icon -->
+                        <h3>Track Day Experiences</h3>
+                        <p>Exclusive access to private track events and performance driving courses.</p>
+                    </div>
+                    <div class="service-item">
+                        <span class="icon">&#128176;</span> <!-- Money bag icon -->
+                        <h3>Luxury Financing & Leasing</h3>
+                        <p>Tailored financial solutions designed for high-value automobile acquisitions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose-us" class="container">
+            <h2>Why Choose Velocity Motors?</h2>
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <h3>White-Glove Multi-Brand Experience</h3>
+                    <p>Access to a diverse portfolio of top-tier exotic and luxury sports cars, all under one roof, with unparalleled service.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>Hybrid Online & Offline Convenience</h3>
+                    <p>Seamless online discovery combined with the personalized, trust-building experience of a luxury showroom.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>Pioneering Luxury Performance EVs</h3>
+                    <p>Curating the most exciting and luxurious electric performance vehicles alongside traditional sports cars.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>Unmatched Concierge Services</h3>
+                    <p>Beyond sales: secure storage, private events, bespoke detailing, and personalized sourcing.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>Transparency & Trust</h3>
+                    <p>Clear pricing, detailed vehicle histories, and honest assessments build lasting relationships.</p>
+                </div>
+                <div class="advantage-item">
+                    <h3>Expert Passionate Team</h3>
+                    <p>Our team lives and breathes sports cars, offering knowledgeable guidance and dedicated support.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-us">
+            <div class="container">
+                <h2>Our Story & Philosophy</h2>
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <p>At Velocity Motors, our journey began with a singular passion: to redefine the experience of acquiring and owning the world's most exceptional automobiles. We are more than just a dealership; we are curators of automotive dreams, dedicated to providing an unparalleled white-glove service that transcends the traditional buying process.</p>
+                        <p>We believe that true luxury lies in meticulous attention to detail, unwavering transparency, and a deep understanding of our clients' aspirations. Our collection is hand-selected, representing the pinnacle of engineering, design, and performance, from iconic combustion engines to the thrilling frontier of electric hypercars.</p>
+                        <p>Our team comprises seasoned automotive experts and enthusiasts who share a profound respect for these machines and the lifestyle they represent. We invite you to join the Velocity Motors family and embark on a journey where your automotive desires are not just met, but exceeded.</p>
+                    </div>
+                    <img src="https://via.placeholder.com/800x500/111111/FFFFFF?text=Our+Passionate+Team" alt="Velocity Motors Team" class="team-photo">
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <div class="container">
+                <h2>What Our Clients Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>"Velocity Motors provided an absolutely seamless experience. Their knowledge and dedication to finding the perfect car were second to none. Truly a cut above the rest!"</p>
+                        <span class="author">— Alex P., Supercar Owner</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The team went above and beyond for my custom build. Their attention to detail and commitment to my vision was incredible. I wouldn't go anywhere else."</p>
+                        <span class="author">— Dr. Emily R., Custom Build Client</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Transparency and trust were paramount, and Velocity Motors delivered. The entire process, from online inquiry to final delivery, was flawless. Highly recommend."</p>
+                        <span class="author">— Michael S., Performance EV Enthusiast</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-cta">
+            <div class="container">
+                <h2>Ready to Ignite Your Passion?</h2>
+                <p>Contact Velocity Motors today to schedule a private viewing, discuss your dream car, or learn more about our exclusive services.</p>
+                <a href="tel:+1-800-VELOCITY" class="btn large">Call Us Now: 1-800-VELOCITY</a>
+                <a href="#" class="btn large secondary-btn" style="margin-left: 15px; background-color: var(--text-color); color: var(--primary-bg);">Schedule a Visit</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Velocity Motors</h3>
+                    <ul>
+                        <li><a href="#about-us">Our Story</a></li>
+                        <li><a href="#why-choose-us">Why Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#featured-inventory">Browse Inventory</a></li>
+                        <li><a href="#our-services">Our Services</a></li>
+                        <li><a href="#">Financing</a></li>
+                        <li><a href="#">Trade-In Valuation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Accessibility Statement</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <p>123 Velocity Drive,<br>Luxury City, LC 90210</p>
+                    <p>Email: <a href="mailto:info@velocitymotors.com">info@velocitymotors.com</a></p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Follow us on Instagram">&#x1F4F8;</a> <!-- Instagram icon -->
+                        <a href="#" aria-label="Follow us on YouTube">&#x1F4FA;</a> <!-- YouTube icon -->
+                        <a href="#" aria-label="Follow us on Facebook">&#x1F4F0;</a> <!-- News icon for Facebook (generic social) -->
+                        <a href="#" aria-label="Follow us on Twitter">&#x1F426;</a> <!-- Bird icon for Twitter (generic social) -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 Velocity Motors. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const mainNavigation = document.getElementById('main-navigation');
+            const navLinks = mainNavigation.querySelectorAll('a');
+
+            navToggle.addEventListener('click', function() {
+                const isOpen = mainNavigation.classList.toggle('open');
+                this.setAttribute('aria-expanded', isOpen);
+            });
+
+            // Close nav when a link is clicked (for smooth scrolling)
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        mainNavigation.classList.remove('open');
+                        navToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const headerOffset = document.querySelector('header').offsetHeight; // Account for sticky header
+                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```
